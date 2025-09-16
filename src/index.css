@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Countdown App Design System */
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 6% 8%;
+    --background-muted: 240 5% 12%;
+    --foreground: 0 0% 98%;
+
+    /* UI Elements */
+    --card: 240 10% 3.9%;
+    --card-hover: 240 8% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Brand Colors */
+    --primary: 346 77% 49%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 346 77% 49%;
+
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: 346 77% 49%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(346 77% 49%), hsl(262 83% 58%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 8% 6%), hsl(240 5% 12%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsl(240 10% 3.9% / 0.8), 
+      hsl(240 8% 6% / 0.4));
+    --gradient-countdown: linear-gradient(145deg, 
+      hsl(346 77% 49% / 0.1), 
+      hsl(262 83% 58% / 0.1));
+
+    /* Shadows */
+    --shadow-elegant: 0 8px 32px hsl(346 77% 49% / 0.12);
+    --shadow-glass: 0 8px 32px hsl(240 10% 3.9% / 0.12);
+    --shadow-glow: 0 0 40px hsl(346 77% 49% / 0.3);
+
+    /* Scheme Colors */
+    --newyear-primary: 45 100% 51%;
+    --newyear-secondary: 240 6% 10%;
+    --wedding-primary: 350 85% 65%;
+    --wedding-secondary: 0 0% 98%;
+    --baby-primary: 200 85% 65%;
+    --baby-secondary: 320 85% 85%;
+    --birthday-primary: 280 100% 70%;
+    --birthday-secondary: 50 100% 60%;
+    --graduation-primary: 220 85% 50%;
+    --graduation-secondary: 45 100% 51%;
+    --travel-primary: 190 85% 55%;
+    --travel-secondary: 170 100% 40%;
+    --christmas-primary: 0 85% 55%;
+    --christmas-secondary: 120 60% 35%;
+    --valentine-primary: 350 85% 60%;
+    --valentine-secondary: 320 85% 70%;
+    --retirement-primary: 30 85% 55%;
+    --retirement-secondary: 45 100% 51%;
+    --work-primary: 210 85% 50%;
+    --work-secondary: 240 6% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-gradient-to-br from-card/80 to-card/40 border border-border/50;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .countdown-number {
+    @apply font-bold text-4xl md:text-6xl tracking-tighter;
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-lg;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+  }
+}
